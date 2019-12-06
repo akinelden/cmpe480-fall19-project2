@@ -1,4 +1,4 @@
-(define (domain domain_name)
+(define (domain wgc-world)
 
 (:requirements :strips ::typing)
 
@@ -21,17 +21,34 @@
 (:action move-boat
     :parameters (?b - boat ?from ?to - dock)
     :precondition (and (boat-at ?b ?from)
-                    )
+                (forall (?c1 ?c2 - cargo) (not (eats ?c1 ?c2)))
+    )
     :effect (and (not (boat-at ?b ?from))
                 (boat-at ?b ?to)     
-            )
+    )
 )
 
 (:action load-cargo
-    :parameters ()
-    :precondition (and )
-    :effect (and )
+    :parameters (?b - boat ?c - cargo ?d - dock)
+    :precondition (and (boat-at ?b ?d)
+                        (cargo-at ?c ?d)
+                        (free ?b)
+    )
+    :effect (and (not (cargo-at ?c ?d))
+                  (not (free ?b))
+                  (carrying ?b ?c)
+    )
 )
 
+(:action unload-cargo
+    :parameters (?b - boat ?c - cargo ?d - dock)
+    :precondition (and (boat-at ?b ?d)
+                        (carrying ?b ?c)
+    )
+    :effect (and (not (carrying ?b ?c))
+                (cargo-at ?c ?d)
+                (free ?b)
+    )
+)
 
 )
