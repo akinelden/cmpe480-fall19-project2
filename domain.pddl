@@ -1,6 +1,6 @@
 (define (domain cross-river)
 
-(:requirements :strips ::typing)
+(:requirements :strips :typing)
 
 (:types cargo dock boat
 )
