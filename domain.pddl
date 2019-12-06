@@ -2,8 +2,7 @@
 
 (:requirements :strips :typing)
 
-(:types cargo dock boat
-)
+(:types cargo dock boat)
 
 (:predicates 
     (cargo-at ?c - cargo ?d - dock); Whether the cargo c is at dock d
