@@ -16,6 +16,7 @@
     (cargo-at wolf europe) 
     (cargo-at goat europe)
     (cargo-at cabbage europe)
+    (boat-at farmerboat europe)
     )
 )
 
